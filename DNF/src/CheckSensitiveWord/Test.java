@@ -6,50 +6,62 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import CharTranslate.CharByteConverter;
+import CheckSensitiveWords4.ZHConverter;
+
 /**
- * ²âÊÔ¹¹½¨×ÖµäÊ÷
- * @author ÁÖÆ®Æ®
+ * æµ‹è¯•æ„å»ºå­—å…¸æ ‘
+ * 
+ * @author æ—é£˜é£˜
  *
  */
 public class Test {
-	public static HashMap rootNode;
+	public static HashMap rootNode; //å­—å…¸æ ‘
+	public static HashMap translate;//ç¹ä½“å˜æˆç®€ä½“
 	
 	public static void main(String[] args) {
 		Set<String> keyWordSet = new TreeSet();
-		keyWordSet.add("ÈÕ±¾");
-		keyWordSet.add("ÈÕ±¾¹í×Ó");
-		keyWordSet.add("Ã«Ôó¶«");
+		//æ•æ„Ÿå­—ç¬¦ä¸­æœ‰è‹±æ–‡å­—æ¯çš„éƒ½æ˜¯å°å†™
+		keyWordSet.add("æ—¥æœ¬");
+		keyWordSet.add("æ—¥æœ¬é¬¼å­");
+		keyWordSet.add("fuck");
+		keyWordSet.add("è¯„è®ºè®¤ä¸º");
 		rootNode =  (HashMap) addSensitiveWordToHashMap(keyWordSet);
 		System.out.println(rootNode);
-		String a = filter("ÎÒÊÇ¸éÖÃµÄÈÕ±¾ÈË");
+		String a = filter("æˆ‘è©•è«–èªç‚ºæ˜¯fucKæï½†ï½•ï½ƒï½‹ç½®çš„ï½†ï½•ï½ƒæ—¥æ¯›æ³½è©•è«–ä¸œæœ¬äººæ—¥");
 		System.out.println(a);
 	}
 	
+	/**
+	 * ç”Ÿæˆå­—å…¸æ ‘
+	 * @param keyWordSet
+	 * @return
+	 */
 	 public static Map addSensitiveWordToHashMap(Set<String> keyWordSet) {  
-	        Map sensitiveWordMap = new HashMap(keyWordSet.size());     //³õÊ¼»¯Ãô¸Ğ´ÊÈİÆ÷£¬¼õÉÙÀ©Èİ²Ù×÷  
+	        Map sensitiveWordMap = new HashMap(keyWordSet.size());     //åˆå§‹åŒ–æ•æ„Ÿè¯å®¹å™¨ï¼Œå‡å°‘æ‰©å®¹æ“ä½œ  
 	        String key = null;    
 	        Map nowMap = null;  
 	        Map<String, String> newWorMap = null;  
-	        //µü´úkeyWordSet  
+	        //è¿­ä»£keyWordSet  
 	        Iterator<String> iterator = keyWordSet.iterator();  
 	        while(iterator.hasNext()){  
-	            key = iterator.next();    //¹Ø¼ü×Ö  
+	            key = iterator.next();    //å…³é”®å­—  
 	            nowMap = sensitiveWordMap;  
 	            for(int i = 0 ; i < key.length() ; i++){  
-	                char keyChar = key.charAt(i);       //×ª»»³ÉcharĞÍ  
-	                Object wordMap = nowMap.get(keyChar);       //»ñÈ¡  
+	                char keyChar = key.charAt(i);       //è½¬æ¢æˆcharå‹  
+	                Object wordMap = nowMap.get(keyChar);       //è·å–  
 	                  
-	                if(wordMap != null){        //Èç¹û´æÔÚ¸Ãkey£¬Ö±½Ó¸³Öµ  
+	                if(wordMap != null){        //å¦‚æœå­˜åœ¨è¯¥keyï¼Œç›´æ¥èµ‹å€¼  
 	                    nowMap = (Map) wordMap;  
-	                } else{     //²»´æÔÚÔò£¬Ôò¹¹½¨Ò»¸ömap£¬Í¬Ê±½«isEndÉèÖÃÎª0£¬ÒòÎªËû²»ÊÇ×îºóÒ»¸ö  
+	                } else{     //ä¸å­˜åœ¨åˆ™ï¼Œåˆ™æ„å»ºä¸€ä¸ªmapï¼ŒåŒæ—¶å°†isEndè®¾ç½®ä¸º0ï¼Œå› ä¸ºä»–ä¸æ˜¯æœ€åä¸€ä¸ª  
 	                    newWorMap = new HashMap<String,String>();  
-	                    newWorMap.put("isEnd", "0");     //²»ÊÇ×îºóÒ»¸ö  
+	                    newWorMap.put("isEnd", "0");     //ä¸æ˜¯æœ€åä¸€ä¸ª  
 	                    nowMap.put(keyChar, newWorMap);  
 	                    nowMap = newWorMap;  
 	                }  
 	                  
 	                if(i == key.length() - 1){  
-	                    nowMap.put("isEnd", "1");    //×îºóÒ»¸ö  
+	                    nowMap.put("isEnd", "1");    //æœ€åä¸€ä¸ª  
 	                }  
 	            }  
 	        }  
@@ -59,7 +71,7 @@ public class Test {
 	 
 	 
 	 /**
-	  * ¹ıÂËÃô¸Ğ´Ê
+	  * è¿‡æ»¤æ•æ„Ÿè¯
 	  */
 	 public static String filter(String text) {
 	     if (text == null) {
@@ -69,25 +81,28 @@ public class Test {
 	     StringBuilder result = new StringBuilder();
 
 	     HashMap tempNode = rootNode;
-	     int begin = 0; // »Ø¹öÊı
-	     int position = 0; // µ±Ç°±È½ÏµÄÎ»ÖÃ
+	     int begin = 0; // å›æ»šæ•°
+	     int position = 0; // å½“å‰æ¯”è¾ƒçš„ä½ç½®
 	     while (position < text.length()) {
 	         char c = text.charAt(position);
+	         c = charConvert(c);//æŠŠæ‰€æœ‰éƒ½å˜æˆå°å†™
+	         c = TransletChinese(c+"");//æŠŠç¹ä½“è½¬æˆç®€ä½“
+	         c = CharConverter(c+"");//æŠŠå…¨è§’è½¬æˆåŠè§’
 	         tempNode = (HashMap) tempNode.get(c);
 	         if (tempNode == null) {
 	             result.append(text.charAt(begin));
-	             // Ìøµ½ÏÂÒ»¸ö×Ö·û¿ªÊ¼²âÊÔ
+	             // è·³åˆ°ä¸‹ä¸€ä¸ªå­—ç¬¦å¼€å§‹æµ‹è¯•
 	             position = begin + 1;
 	             begin = position;
-	             // »Øµ½Ê÷³õÊ¼½Úµã
+	             // å›åˆ°æ ‘åˆå§‹èŠ‚ç‚¹
 	             tempNode = rootNode;
 	         } else if (tempNode.get("isEnd") == "1") {
-	             // ·¢ÏÖÃô¸Ğ´Ê£¬ ´Óbeginµ½positionµÄÎ»ÖÃÓÃreplacementÌæ»»µô
+	             // å‘ç°æ•æ„Ÿè¯ï¼Œ ä»beginåˆ°positionçš„ä½ç½®ç”¨replacementæ›¿æ¢æ‰
 	             result.append(replacement);
 	             position = position + 1;
 	             begin = position;
 	             tempNode = rootNode;
-	         } else { //»¹²»È·¶¨ÊÇ²»ÊÇÃô¸Ğ´Ê
+	         } else { //è¿˜ä¸ç¡®å®šæ˜¯ä¸æ˜¯æ•æ„Ÿè¯
 	             ++position;
 	         }
 	     }
@@ -96,4 +111,37 @@ public class Test {
 	     return result.toString();
 	 }
 
+	 /**
+	  * è§£å†³å¤§å°å†™é—®é¢˜(å·²ç»æ’å…¥ç¨‹åº)
+	  */
+	 public static char charConvert(char r){
+		 /*String newStr = "";
+		 for(char r :str.toCharArray()){
+			 if(r >= 'A' && r <='Z'){
+				 newStr = newStr+(r+32);
+			 } else {
+				 newStr = newStr+r;
+			 }
+		 }*/
+		 return (char) ((r >= 'A' && r <='Z')? r+32:r);
+	 }
+	 
+	 /**
+	  * ç¹ä½“å­—å˜æˆç®€ä½“å­—
+	  * @param str
+	  * @return
+	  */
+	 public static char TransletChinese(String str){
+		 ZHConverter converter = ZHConverter.getInstance(ZHConverter.SIMPLIFIED);
+	     String simplified = converter.convert(str);
+	     return simplified.charAt(0);
+	 }
+	 
+	 
+	 /**
+	  * è§£å†³å°†ï¼˜ï¼‘ï¼”ä¹¡é“é˜¿æ–¯è’‚èŠ¬ï¼‘ï¼’ï¼“  å˜ä¸º 814ä¹¡é“é˜¿æ–¯è’‚èŠ¬123
+	  */
+	 public static char CharConverter(String str){
+		 return CharByteConverter.ToDBC(str).charAt(0);
+	 }
 }
