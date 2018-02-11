@@ -7,27 +7,42 @@ package model;
 public class Comment {
 
 	public int commentId;//评论ID
-	public int userId;//是回复的哪个用户
-	public int cardId;//帖子ID
 	public String commentContent;//具体内容
 	public String commentTimeDate;//时间毫秒值
+	public byte isCommentDelete;//
+	public Card card;
+	public User user;
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Comment [commentId=" + commentId + ", commentContent=" + commentContent + ", commentTimeDate="
+				+ commentTimeDate + ", isCommentDelete=" + isCommentDelete + ", card=" + card + ", user=" + user + "]";
+	}
+	public byte getIsCommentDelete() {
+		return isCommentDelete;
+	}
+	public void setIsCommentDelete(byte isCommentDelete) {
+		this.isCommentDelete = isCommentDelete;
+	}
+	public Card getCard() {
+		return card;
+	}
+	public void setCard(Card card) {
+		this.card = card;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public int getCommentId() {
 		return commentId;
 	}
 	public void setCommentId(int commentId) {
 		this.commentId = commentId;
-	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-	public int getCardId() {
-		return cardId;
-	}
-	public void setCardId(int cardId) {
-		this.cardId = cardId;
 	}
 	public String getCommentContent() {
 		return commentContent;

@@ -17,5 +17,13 @@
 	    <property name="address" type="java.lang.String" column="address"/>
 	    <property name="phone" type="java.lang.String" column="phone"/>
 	    <property name="headPicture" type="java.lang.String" column="headPicture"/>
+	    <!-- 	    <set name="一端中定义多端的集合名" table="多端表名" cascade="save-update">
+            <key column="多端表中外键名"></key>
+            <one-to-many class="多端类权限定名"/>
+        </set> -->
+	    <!-- <set name="cards" table="Card" cascade="save-update">
+            <key column="userId"></key>
+        <one-to-many class="Card"/>
+        </set> -->
      </class>
      </hibernate-mapping>

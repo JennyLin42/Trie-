@@ -6,6 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import model.Card;
+import model.Comment;
 import model.User;
 
 public class test {
@@ -26,6 +27,8 @@ public class test {
 		  System.out.println(a);
 		  Card aa = (Card)session.get(Card.class, 1);
 		  System.out.println(aa);
+		  Comment aaa = (Comment)session.get(Comment.class, 1);
+		  System.out.println(aaa);
 		  //6.提交 回滚
 		  tx.commit();//tx.rollback();
 		  //7.释放资源

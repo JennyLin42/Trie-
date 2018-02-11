@@ -6,21 +6,38 @@ package model;
  */
 public class Card {
 	public int cardId;//帖子ID
-	public int userId;//发布用户
+	//public int userId;//发布用户
 	public String cartTimeDate;//帖子发布时间
 	public int good;//赞的个数
+	public byte isCardDelete;
 	public String cartContent;//帖子内容
+	public User user;
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Card [cardId=" + cardId + ", cartTimeDate=" + cartTimeDate + ", good=" + good + ", isCardDelete="
+				+ isCardDelete + ", cartContent=" + cartContent + ", user=" + user + "]";
+	}
+	public byte getIsCardDelete() {
+		return isCardDelete;
+	}
+	public void setIsCardDelete(byte isCardDelete) {
+		this.isCardDelete = isCardDelete;
+	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+
 	public int getCardId() {
 		return cardId;
 	}
 	public void setCardId(int cardId) {
 		this.cardId = cardId;
-	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 	public String getCartTimeDate() {
 		return cartTimeDate;

@@ -20,5 +20,6 @@
      <!--指定Hibernate映射文件路径 --> 
      <mapping resource="hibernate/User.hbm.xml" /> 
      <mapping resource="hibernate/Card.hbm.xml" /> 
+     <mapping resource="hibernate/Comment.hbm.xml" /> 
      </session-factory> 
      </hibernate-configuration> 
