@@ -29,4 +29,10 @@ foreign key(userId) references User(userId),
 foreign key(cardId) references Card(cardId)
 );
 
-select * from Comment
+insert into user values('3','xingming','dizhi','13631256158','img/mmm');
+insert into user values('3','xingming','dizhi','13631256158','img/mmm');
+insert into user values('3','xingming','dizhi','13631256158','img/mmm');
+insert into user values('3','xingming','dizhi','13631256158','img/mmm');
+
+
+select * from user

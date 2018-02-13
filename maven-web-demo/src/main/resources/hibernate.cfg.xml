@@ -10,7 +10,7 @@
      <!--用户名 --> 
      <property name="connection.username">root</property> 
      <!--url信息 --> 
-     <property name="connection.url">jdbc:mysql://localhost:3306/undoPuzzled</property> 
+     <property name="connection.url">jdbc:mysql://123.207.96.247:3306/undoPuzzled</property> 
      <!--数据库方言信息--> 
      <property name="dialect">org.hibernate.dialect.MySQLDialect</property> 
      <!--密码 --> 
