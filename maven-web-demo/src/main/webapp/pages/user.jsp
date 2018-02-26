@@ -54,44 +54,6 @@
 		id="is_login">
 </body>
 </html>
-<div style="height:300px;">
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>轮播</title>
-</head>
-<body>
-<div class="layui-carousel" id="test1" lay-filter="test1">
-  <div carousel-item="">
-    <div><img alt="" src="images/banner/bannerimg2.gif" width="100%" height="300px"></div>
-    <div><img alt="" src="images/banner/bannerimg1.gif" width="100%" height="300px"></div>
- <!--    <div><img alt="" src="/itdage-show/images/4k3.jpg" width="100%" height="300px"></div>
-    <div><img alt="" src="/itdage-show/images/4k4.jpg" width="100%" height="300px"></div>
-    <div><img alt="" src="/itdage-show/images/4k5.jpg" width="100%" height="300px"></div> -->
-  </div>
-</div>
-<script type="text/javascript">
-//图片轮播
-layui.use(['carousel', 'form'], function(){
-	  var carousel = layui.carousel
-	  ,form = layui.form;
-	  //常规轮播
-	  carousel.render({
-	    elem: '#test1',
-	    width: '100%',
-	    height: '300px',
-	    interval: '4000',
-	    arrow: 'always'
-	  });
-	  
-});
-
-</script>
-</body>
-</html>
-</div>
 <hr>
 <div>
 	<div class="left">
@@ -110,24 +72,19 @@ layui.use(['carousel', 'form'], function(){
 						<br>
 						
 						<div id='text_id' style='width:100%;height:16px;overflow: hidden; text-overflow:ellipsis; white-space: nowrap;'>
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						&nbsp;&nbsp;&nbsp;&nbsp;
 						<a class='title' target='_blank' href='card.jsp'>内容内容。。。。。。。。。。。内容</a>
 						</div>
 						<br><br>
 						<div><p align='right' style='margin-right:20px;'><i class='layui-icon'>&#xe637;</i>&nbsp;<span>时间噢</span>
 						&nbsp;&nbsp;&nbsp;&nbsp;
-						<!-- <i class='layui-icon'>&#xe612;</i>&nbsp;<span>用户名 </span> -->
-						&nbsp;
-						<!-- <a class='comment'><img alt='' src='/itdage-show/images/tag.png' width='20px;' height='13px;'>&nbsp;<span>类型</span></a>
-						&nbsp;&nbsp;&nbsp;&nbsp; -->
-						<span><i class="layui-icon">&#xe6c6;</i> 赞(20)</span>
+						<span><i class="layui-icon">&#xe6c6;</i>&nbsp;赞(20)</span>
 						&nbsp;&nbsp;&nbsp;&nbsp;
 						<a class='comment'><i class='layui-icon'>&#xe611;</i>&nbsp;<span>评论(20)</span></a>
 						</p>
 						</div>
 					</div>	
-				</li>
-				<li id="article_list">
+				</li><li id="article_list">
 					<div id='article_li'>
 						<h3 style='color:black;'>
 							<a  href="user.jsp">
@@ -162,11 +119,28 @@ layui.use(['carousel', 'form'], function(){
 		</div>
 </div>
 	<div class="right">
-		<div class="hot_article" >
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;热门帖子
-			<hr class="layui-bg-green">
-			<ul id="hot_article_list">
-			    <li><a onclick="getArticle('121')" class="title">1.
+			<div class="hot_article" style="text-align: center;height:160px;">
+				&nbsp;&nbsp;贴主简介
+				<hr class="layui-bg-green">
+				<ul>
+					<!-- 测试为写死的图片 -->
+					<li>
+					<a href="javascript:"><img alt=""
+							src="images/小清新.jpg"
+							style="width: 50px; height: 50px; border-radius: 200px;">&nbsp;&nbsp;</a></li>
+					<!-- <li><a href="#" class="title"> 用户名
+					<span  class="layui-badge layui-bg-green">+ 关注</span></a></li> -->
+					<li><a  href="user.jsp"><b>用户名</b></a></li>
+					<li>原创：88</li>
+				</ul>
+			</div>
+
+			<div class="hot_article" style="margin-top: 20px;">
+				<span style="padding-left: 133px;">他的最新文章</span>
+				<hr class="layui-bg-green">
+				<ul id="new_article_list">
+					
+						<li><a onclick="getArticle('121')" class="title">1.
 								回眸却已逝去</a></li>
 					
 						<li><a onclick="getArticle('119')" class="title">2.
@@ -179,19 +153,11 @@ layui.use(['carousel', 'form'], function(){
 								时光慢些吧，不要再让他老去</a></li>
 					
 						<li><a onclick="getArticle('116')" class="title">5.
-								乡愁是一种味道</a>
-				</li>
-			</ul>
+								乡愁是一种味道</a></li>
+					
+				</ul>
+			</div>
 		</div>
-		
-		<!-- <div class="hot_article" style="margin-top:20px;">
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;网站公告
-			<hr class="layui-bg-green">
-			<ul id = 'notice'>
-				<li><p style="color:black;">这是网站前台页面,配套的还有一个后台网站管理这个前台。此网站基于Java和layui开发,用到了Spring、Spring Mvc、Mybatis、Mysql等技术。</p></li>
-			</ul>
-		</div> -->
-	</div>
 </div>
 <div id="demo7"></div>
 

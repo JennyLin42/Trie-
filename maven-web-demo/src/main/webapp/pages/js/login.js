@@ -77,6 +77,15 @@ if (id == -1){
 									+ "      <input type='text' id='tel' name='tel' required lay-verify='phone' autocomplete='off' class='layui-input'>"
 									+ "</div>"
 									+ "</div>"
+									//-------上传图片
+									+"<div class='layui-upload'>"
+									+"<button type='button' class='layui-btn' id='test1'>上传图片</button>"
+									+"<div class='layui-upload-list'>"
+									+"<img class='layui-upload-img' id='demo1'>"
+									+"<p id='demoText'></p>"
+									+ "</div>"
+									+ "</div>"
+									//-------上传图片
 									+ "<div class='layui-form-item'>"
 									+ "    <label for='L_email' class='layui-form-label'>邮箱</label>"
 									+ "    <div class='layui-input-inline'>"

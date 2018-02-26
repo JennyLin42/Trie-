@@ -34,7 +34,7 @@ a.changecursor:hover{
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="stylesheet" href="style/layui.css" media="all">
+<link rel="stylesheet" href="itdage-show/layui/css/layui.css" media="all">
 <link type="text/css" rel="stylesheet" href="style/header.css"><!-- 头部登陆注册 -->
 <link type="text/css" rel="stylesheet" href="style/reset.css"><!-- 解忧驿站 -->
 <link type="text/css" rel="stylesheet" href="style/main.css"><!-- 解忧驿站 -->
